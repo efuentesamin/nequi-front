@@ -16,7 +16,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = LoginPage;
+    rootPage: any = HomePage;
     public menuItems = [
         {label: 'Inicio', page: HomePage, icon: 'md-time'},
         {label: 'Lista', page: LoginPage, icon: 'md-list'},
@@ -48,7 +48,7 @@ export class MyApp {
         // Ask whether user is logged in
         this.authService.isLoggedIn(loggedIn => {
             if (!loggedIn) {
-                // this.rootPage = LoginPage;
+                this.rootPage = LoginPage;
             }
         });
     }

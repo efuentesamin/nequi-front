@@ -37,19 +37,16 @@ export class AuthServiceProvider {
             .catch(error => callback(false));
     }
 
-    login(token: String) {
-        const params = {facebook_token: token};
-        this.http.post(`${ENV.API_URL}/api/v1/login`, params)
-            .map(res => res.json()).subscribe(
-                response => {
-                    this.storage.set('nequi_token', response.token).then(value => {
-                        this.me();
-                        this.events.publish('user:logged-in');
-                    });
-                },
-                error => this.events.publish('http:error', error),
-                () => {},
-            );
+    login(user: String, password: String) {
+        const params = {
+            grant_type: 'password',
+            client_id: 2,
+            client_secret: 'p0rNO2SBPnEIf1aLJ9ZbzI9ph0jmUPqi9TT7CFJQ',
+            username: user,
+            password: password,
+            scope: '*'
+        };
+        return this.http.post(`${ENV.API_URL}/oauth/token/`, params).map(res => res.json());
     }
 
     logout() {

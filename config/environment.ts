@@ -1,7 +1,7 @@
 export const ENVS = {
     dev_env: {
         PRODUCTION: false,
-        API_URL: 'http://localhost:3333'
+        API_URL: 'http://1a763f06.ngrok.io'
     },
     prod_env: {
         PRODUCTION: true,
