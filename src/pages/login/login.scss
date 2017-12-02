@@ -1,5 +1,31 @@
 page-login {    
     .content-md{
         background: color($colors, midnight, base);
+
+        .scroll-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
+        }
+
+        #logo{
+            width: 120px;
+            height: 120px;
+            margin: 15px 0 50px 0;
+        }
+
+        .item-md{
+            background: none;
+            color: #f7f7f7;
+            margin: 10px 0;
+            padding-left: 0px;
+            border-bottom: 1px solid rgba(255,255,255,.2);
+
+            .item-inner{
+                border-bottom: none;
+            }
+        }
     }    
 }
