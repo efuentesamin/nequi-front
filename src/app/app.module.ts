@@ -9,6 +9,10 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { ClassesPage } from '../pages/classes/classes';
+import { ClassDetailPage } from '../pages/class-detail/class-detail';
+import { AchievementsPage } from '../pages/achievements/achievements';
+import { AchievementDetailPage } from '../pages/achievement-detail/achievement-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +37,11 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     entryComponents: [
         MyApp,
         HomePage,
-        LoginPage
+        LoginPage,
+        ClassesPage,
+        ClassDetailPage,
+        AchievementsPage,
+        AchievementDetailPage
     ],
     providers: [
         StatusBar,

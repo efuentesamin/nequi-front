@@ -7,6 +7,10 @@ import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { ClassesPage } from '../pages/classes/classes';
+import { ClassDetailPage } from '../pages/class-detail/class-detail';
+import { AchievementsPage } from '../pages/achievements/achievements';
+import { AchievementDetailPage } from '../pages/achievement-detail/achievement-detail';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
