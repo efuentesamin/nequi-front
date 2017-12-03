@@ -30,12 +30,14 @@ export class ClassesPage {
 
     ionViewDidEnter() {
 
-        if (this.authService.personalInfo.main_role.indexOf('Guardián')) {
-            this.slides.slideTo(-1);
-        } else if (this.authService.personalInfo.main_role.indexOf('Aventurero')) {
-            this.slides.slideTo(0);
-        } else if (this.authService.personalInfo.main_role.indexOf('Guerrero')) {
-            this.slides.slideTo(1);
+        if (this.authService.personalInfo.main_role){
+            if (this.authService.personalInfo.main_role.indexOf('Guardián')) {
+                this.slides.slideTo(-1);
+            } else if (this.authService.personalInfo.main_role.indexOf('Aventurero')) {
+                this.slides.slideTo(0);
+            } else if (this.authService.personalInfo.main_role.indexOf('Guerrero')) {
+                this.slides.slideTo(1);
+            }
         }
 
     }
