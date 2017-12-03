@@ -19,7 +19,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = HomePage;
+    rootPage: any = AchievementsPage;
     public menuItems = [
         {label: 'Inicio', page: HomePage, icon: 'md-time'},
         // {label: 'Lista', page: LoginPage, icon: 'md-list'},
