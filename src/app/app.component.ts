@@ -23,7 +23,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
     rootPage: any = HomePage;
     public menuItems = [
-        { label: 'Inicio', page: HomePage, icon: 'md-time' },
+        { label: 'Inicio', page: HomePage, icon: 'md-home' },
         { label: 'Clases', page: ClassesPage, icon: 'md-contacts' },
         { label: 'Logros', page: AchievementsPage, icon: 'md-star' },
         { label: 'Ranking', page: RankingPage, icon: 'md-star' },
