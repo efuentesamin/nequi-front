@@ -21,6 +21,7 @@ import { HttpServiceProvider } from '../providers/http-service/http-service';
 import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AchievementServiceProvider } from '../providers/achievement-service/achievement-service';
+import { PocketServiceProvider } from '../providers/pocket-service/pocket-service';
 
 @NgModule({
     declarations: [
@@ -58,7 +59,8 @@ import { AchievementServiceProvider } from '../providers/achievement-service/ach
         HttpServiceProvider,
         ErrorHandlerProvider,
         AuthServiceProvider,
-    AchievementServiceProvider
+    AchievementServiceProvider,
+    PocketServiceProvider
     ]
 })
 export class AppModule { }

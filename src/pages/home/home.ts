@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AchievementsPage } from '../../pages/achievements/achievements';
 import { NavController } from 'ionic-angular';
+import {PocketServiceProvider} from '../../providers/pocket-service/pocket-service';
 
 @Component({
   selector: 'page-home',
@@ -8,8 +9,15 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+	private pockets = [];
 
+  constructor(public navCtrl: NavController, public pocketService: PocketServiceProvider) {
+  	this.pocketService.pockets(null).subscribe(
+  			response => {
+  				console.log(response);
+  				this.pockets = response;
+  			}
+  		);
   }
 
   handleMenuItem(pagename) {
@@ -20,6 +28,36 @@ export class HomePage {
   		default:
   			break;
   	}
+  }
+
+  getNormalPockets() {
+  	var total = 0;
+  	for (var i = 0; i < this.pockets.length; ++i) {
+  		if (this.pockets[i].type_id == 1)
+  			total++;
+  	}
+
+  	return total;
+
+  }
+
+  getDisponible() {
+  	var total = 0;
+  	for (var i = 0; i < this.pockets.length; ++i) {
+  		if (this.pockets[i].type_id == 0 || this.pockets[i].type_id == 1)
+  			total += this.pockets[i].money;
+  	}
+
+  	return total;
+  }
+
+  getTotal() {
+  	var total = 0;
+  	for (var i = 0; i < this.pockets.length; ++i) {
+  			total += this.pockets[i].money;
+  	}
+
+  	return total;
   }
 
 }

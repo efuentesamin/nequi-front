@@ -6,10 +6,10 @@
       <img id="cards" src="assets/imgs/isologo.svg">
       <div id="block-info">
         <span class="title">Disponible</span>
-        <span class="amount">$100.000</span>
-        <span class="title">1 Bolsillo</span>
+        <span class="amount">{{getDisponible() | currency:'$':true:'1.0':locale:'es'}}</span>
+        <span class="title">{{getNormalPockets()}} Bolsillo(s)</span>
         <span class="title">Total</span>
-        <span class="amount-total">$340.000</span>
+        <span class="amount-total">{{getTotal() | currency:'$':true:'1.0':locale:'es'}}</span>
       </div>
   </div>
   <div id="mainmenu">
