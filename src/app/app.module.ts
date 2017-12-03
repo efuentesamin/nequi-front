@@ -12,12 +12,14 @@ import { LoginPage } from '../pages/login/login';
 import { ClassesPage } from '../pages/classes/classes';
 import { AchievementsPage } from '../pages/achievements/achievements';
 import { AchievementDetailPage } from '../pages/achievement-detail/achievement-detail';
+import { RankingPage } from '../pages/ranking/ranking';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpServiceProvider } from '../providers/http-service/http-service';
 import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { AchievementServiceProvider } from '../providers/achievement-service/achievement-service';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
         LoginPage,
         ClassesPage,
         AchievementsPage,
-        AchievementDetailPage
+        AchievementDetailPage,
+        RankingPage
     ],
     imports: [
         BrowserModule,
@@ -42,7 +45,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
         LoginPage,
         ClassesPage,
         AchievementsPage,
-        AchievementDetailPage
+        AchievementDetailPage,
+        RankingPage
     ],
     providers: [
         StatusBar,
@@ -50,7 +54,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         HttpServiceProvider,
         ErrorHandlerProvider,
-        AuthServiceProvider
+        AuthServiceProvider,
+    AchievementServiceProvider
     ]
 })
 export class AppModule { }

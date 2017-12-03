@@ -17,12 +17,9 @@
 <ion-content padding>
 	<ion-grid>
 		<ion-row>
-			<ion-col *ngFor="let g of goals" col-4>
-				<div *ngIf="isGoalActive(g)">
-					<b>{{g}}</b>
-				</div>
-				<div *ngIf="!isGoalActive(g)">
-					{{g}}
+			<ion-col *ngFor="let a of achievements" col-4>
+				<div (click)="viewDetails(a)" class="achievement" [class.active]="a.adquired_by_me">
+					<img src="assets/imgs/{{a.image}}.svg" alt="">
 				</div>
 			</ion-col>
 		</ion-row>
