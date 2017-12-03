@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Events, AlertController, NavController } from 'ionic-angular';
+import { Events, AlertController, NavController, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
@@ -38,7 +38,8 @@ export class MyApp {
         private events: Events,
         private alertController: AlertController,
         private authService: AuthServiceProvider,
-        private alertCtrl: AlertController
+        private alertCtrl: AlertController,
+        private modalCtrl: ModalController,
     ) {
         this.initializeApp();
         this.events.subscribe('user:logged-in', () => {
@@ -52,10 +53,10 @@ export class MyApp {
         this.events.subscribe('http:error', (error) => {
             this.handleError(error);
         });
-        this.events.subscribe('user:achievement', (name) => {
+        this.events.subscribe('user:achievement', (achievement) => {
             let alert = this.alertCtrl.create({
                 title: 'Logro desbloqueado',
-                message: 'Has desbloqueado el logro "' + name + '"!',
+                message: 'Has desbloqueado el logro "' + achievement.name + '"!',
                 buttons: [
                     {
                         text: 'Ok',
@@ -64,7 +65,8 @@ export class MyApp {
                     {
                         text: 'Más',
                         handler: () => {
-                            this.rootPage = AchievementsPage
+                            let modal = this.modalCtrl.create(AchievementDetailPage, {achievement: achievement});
+                            modal.present();
                         }
                     }
                 ]

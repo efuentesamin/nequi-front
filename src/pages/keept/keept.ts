@@ -67,7 +67,7 @@ export class KeeptPage {
 
                 if (response.goals_adquired) {
                     for (let i = 0; i < response.goals_adquired.length; ++i) {
-                        this.events.publish('user:achievement', response.goals_adquired[i].name);
+                        this.events.publish('user:achievement', response.goals_adquired[i]);
                     }
                 }
             }
