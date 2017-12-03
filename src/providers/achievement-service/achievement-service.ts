@@ -21,13 +21,17 @@ export class AchievementServiceProvider {
     console.log('Hello AchievementServiceProvider Provider');
   }
 
-    achievements() {
+    achievements(category) {
         let headers: Headers = this.httpService.getHeaders();
         return this.httpService.getApiToken().flatMap(data => {
             headers.append('Authorization', `Bearer ${data}`);
             
-            return this.http.get(`${ENV.API_URL}/api/goals`, {"headers": headers})
-                .map(res => res.json());
+            if (category)
+                return this.http.get(`${ENV.API_URL}/api/goals?category=${category}`, {"headers": headers})
+                    .map(res => res.json());
+            else
+                return this.http.get(`${ENV.API_URL}/api/goals`, {"headers": headers})
+                    .map(res => res.json());
         });
     }
 

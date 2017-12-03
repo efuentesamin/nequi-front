@@ -18,7 +18,8 @@ import {AchievementServiceProvider} from '../../providers/achievement-service/ac
 export class AchievementsPage {
 
 	private achievements = [];
-	private myAchievements = [];
+  private category = null;
+  private categories = ['Todos', 'Guardian', 'Aventurero', 'Guerrero'];
 
   constructor(
   	public navCtrl: NavController,
@@ -26,16 +27,12 @@ export class AchievementsPage {
    	public achievementService: AchievementServiceProvider,
    	public modalCtrl: ModalController
   ) {
-  	achievementService.achievements().subscribe(
-		response => {
-			this.achievements = response;
-		}
-	);
-  	achievementService.myAchievements().subscribe(
-		response => {
-			this.myAchievements = response;
-		}
-	);
+    this.category = navParams.get('category');
+  	achievementService.achievements(this.category).subscribe(
+  		response => {
+  			this.achievements = response;
+  		}
+  	);
   }
 
   ionViewDidLoad() {

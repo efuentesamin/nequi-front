@@ -1,3 +1,21 @@
 page-achievement-detail {
+	#achievement {
+		text-align: center;
+		padding: 0 25px;
 
+		img {
+			width: 75%;
+			height: auto;
+		}
+		img:not(.active) {
+			opacity: .25;
+		    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+			filter: grayscale(100%);
+		}
+
+		.adquired_date {
+			font-style: italic;
+			color: gray;
+		}
+	}
 }
