@@ -5,14 +5,27 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>chat</ion-title>
+  <ion-navbar color="midnight">
+    <button ion-button menuToggle clear>
+        <img class="avatar" src="{{avatar}}" alt="{{name}}">
+    </button>
+    <ion-title>{{name}}</ion-title>
+    <ion-buttons end>
+        <button ion-button navPop>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+<ul>
+  <li class="right">Hola, ¿cómo hiciste para subir tan rápido en el ranking?</li>
+  <li class="left">Hola, fue muy fácil!!! Te explico...</li>
+</ul>
 </ion-content>
+<ion-footer>
+  <ion-textarea></ion-textarea>
+</ion-footer>
