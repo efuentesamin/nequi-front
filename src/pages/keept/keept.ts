@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, LoadingController } from 'ionic-angular';
 import { PocketServiceProvider } from '../../providers/pocket-service/pocket-service';
 
 
@@ -16,6 +16,7 @@ import { PocketServiceProvider } from '../../providers/pocket-service/pocket-ser
     templateUrl: 'keept.html',
 })
 export class KeeptPage {
+    private loader;
     private principal = 0;
     private value = 0;
     private original = 0;
@@ -24,7 +25,8 @@ export class KeeptPage {
         public navCtrl: NavController,
         public navParams: NavParams,
         private events: Events,
-        private pocketService: PocketServiceProvider
+        private pocketService: PocketServiceProvider,
+        public loadingCtrl: LoadingController
     ) {
         for (var i = 0; i < this.pocketService._pockets.length; ++i) {
             if (this.pocketService._pockets[i].type_id == 0)
@@ -60,8 +62,14 @@ export class KeeptPage {
 
     send() {
         const money = this.value - this.original;
+        this.loader = this.loadingCtrl.create({
+            content: 'Guardando cambios'
+        });
+        this.loader.present();
+
         this.pocketService.keept(money).subscribe(
             response => {
+                this.loader.dismiss();
                 console.log(response);
                 this.navCtrl.pop();
 
