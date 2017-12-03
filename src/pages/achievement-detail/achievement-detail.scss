@@ -1,4 +1,7 @@
 page-achievement-detail {
+	.scroll-content{
+		background: color($colors, seawater, base);
+	}
 	#achievement {
 		text-align: center;
 		padding: 0 25px;
