@@ -37,6 +37,7 @@ export class KeeptPage {
         }
 
         this.original = this.value;
+        console.log(this.principal, this.value);
     }
 
     ionViewDidLoad() {
@@ -63,7 +64,7 @@ export class KeeptPage {
             response => {
                 console.log(response);
                 this.navCtrl.pop();
-                
+
                 if (response.goals_adquired) {
                     for (let i = 0; i < response.goals_adquired.length; ++i) {
                         this.events.publish('user:achievement', response.goals_adquired[i].name);

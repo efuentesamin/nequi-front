@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { AchievementsPage } from '../../pages/achievements/achievements';
-import { NavController } from 'ionic-angular';
-import { PocketServiceProvider } from '../../providers/pocket-service/pocket-service';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { NavController, ModalController } from 'ionic-angular';
+import { PocketServiceProvider } from '../../providers/pocket-service/pocket-service';
+import { KeeptPage } from '../../pages/keept/keept';
+
 
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
 
-    constructor(public navCtrl: NavController, public pocketService: PocketServiceProvider) {
+    constructor(public navCtrl: NavController, public pocketService: PocketServiceProvider, public modalCtrl: ModalController) {
     }
 
-    ngOnInit() {
+    ionViewDidEnter() {
         this.pocketService.pockets(null).subscribe(
             response => {
                 console.log(response);
@@ -25,6 +27,10 @@ export class HomePage implements OnInit {
 
     handleMenuItem(pagename) {
         switch (pagename) {
+            case "keept":
+                let keeptModal = this.modalCtrl.create(KeeptPage);
+                keeptModal.present();
+                break;
             case "achievements":
                 this.navCtrl.setRoot(AchievementsPage);
                 break;

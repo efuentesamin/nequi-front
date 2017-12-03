@@ -6,10 +6,12 @@
 -->
 <ion-header>
     <ion-navbar color="midnight">
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
         <ion-title>Guardadito</ion-title>
+        <ion-buttons end>
+            <button ion-button navPop>
+              <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -25,6 +27,6 @@
     </div>
 
     <ion-fab bottom right>
-        <button ion-fab color="guava">$</button>
+        <button ion-fab color="guava" (click)="send()">$</button>
     </ion-fab>
 </ion-content>
