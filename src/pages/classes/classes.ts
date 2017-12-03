@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
-import { LoginPage } from '../login/login';
+import { AchievementsPage } from '../achievements/achievements';
 
 
 /**
@@ -29,8 +29,8 @@ export class ClassesPage {
         console.log('ionViewDidLoad ClassesPage');
     }
 
-    showAchievements(_class: String) {
-        let achievementsModal = this.modalCtrl.create(LoginPage, {_class: _class});
+    showAchievements(category: String) {
+        let achievementsModal = this.modalCtrl.create(AchievementsPage, {category: category});
         achievementsModal.present();
     }
 
