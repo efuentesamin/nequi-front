@@ -56,8 +56,8 @@ export class MyApp {
         });
         this.events.subscribe('user:achievement', (achievement) => {
             let alert = this.alertCtrl.create({
-                title: 'Logro desbloqueado',
-                message: 'Has desbloqueado el logro "' + achievement.name + '"!',
+                title: 'Triunfo desbloqueado',
+                message: 'Has desbloqueado el triunfo "' + achievement.name + '"!',
                 buttons: [
                     {
                         text: 'Ok',

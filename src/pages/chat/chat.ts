@@ -15,7 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ChatPage {
 
+  private name = null;
+  private avatar = null;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.name = navParams.get('name');
+    this.avatar = navParams.get('avatar');
+
+    console.log(navParams, this.name, this.avatar);
   }
 
   ionViewDidLoad() {
