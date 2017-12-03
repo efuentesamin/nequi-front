@@ -15,11 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AchievementsPage {
 
+	private goals = [1, 2, 3];
+	private myGoals = [1];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AchievementsPage');
+  }
+
+  isGoalActive(goal) {
+  	return this.myGoals.indexOf(goal) != -1;
   }
 
 }
