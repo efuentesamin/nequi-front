@@ -20,11 +20,11 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = RankingPage;
+    rootPage: any = HomePage;
     public menuItems = [
         {label: 'Inicio', page: HomePage, icon: 'md-time'},
-        // {label: 'Lista', page: LoginPage, icon: 'md-list'},
         {label: 'Logros', page: AchievementsPage, icon: 'md-star'},
+        {label: 'Ranking', page: RankingPage, icon: 'md-star'},
         {label: 'Salir', page: null, icon: 'md-exit'},
     ];
 
