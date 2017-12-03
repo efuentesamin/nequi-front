@@ -20,7 +20,7 @@ export class AchievementsPage {
 	private achievements = [];
   private category;
   private categories = ['Todos', 'Guardian', 'Aventurero', 'Guerrero'];
-  private category_imgs = ['isologo', 'insignia-guardian', 'insignia-explorador', 'insignia-guerrero'];
+  private category_imgs = ['default', 'insignia-guardian', 'insignia-explorador', 'insignia-guerrero'];
 
   constructor(
   	public navCtrl: NavController,
