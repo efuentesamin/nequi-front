@@ -20,6 +20,7 @@ export class AchievementsPage {
 	private achievements = [];
   private category;
   private categories = ['Todos', 'Guardian', 'Aventurero', 'Guerrero'];
+  private category_imgs = ['insignia_todos', 'insignia_guardian', 'insignia_aventurero', 'insignia_guerrero'];
 
   constructor(
   	public navCtrl: NavController,
@@ -28,7 +29,6 @@ export class AchievementsPage {
    	public modalCtrl: ModalController
   ) {
     this.category = navParams.get('category');
-    this.category = 1;
   	achievementService.achievements(this.category).subscribe(
   		response => {
   			this.achievements = response;
