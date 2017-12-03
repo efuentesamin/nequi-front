@@ -11,6 +11,7 @@ import { ClassesPage } from '../pages/classes/classes';
 import { AchievementsPage } from '../pages/achievements/achievements';
 import { AchievementDetailPage } from '../pages/achievement-detail/achievement-detail';
 import { RankingPage } from '../pages/ranking/ranking';
+import { KeeptPage } from '../pages/keept/keept';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
@@ -20,7 +21,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = HomePage;
+    rootPage: any = KeeptPage;
     public menuItems = [
         {label: 'Inicio', page: HomePage, icon: 'md-time'},
         {label: 'Clases', page: ClassesPage, icon: 'md-contacts'},

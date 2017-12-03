@@ -13,6 +13,7 @@ import { ClassesPage } from '../pages/classes/classes';
 import { AchievementsPage } from '../pages/achievements/achievements';
 import { AchievementDetailPage } from '../pages/achievement-detail/achievement-detail';
 import { RankingPage } from '../pages/ranking/ranking';
+import { KeeptPage } from '../pages/keept/keept';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +30,8 @@ import { AchievementServiceProvider } from '../providers/achievement-service/ach
         ClassesPage,
         AchievementsPage,
         AchievementDetailPage,
-        RankingPage
+        RankingPage,
+        KeeptPage
     ],
     imports: [
         BrowserModule,
@@ -46,7 +48,8 @@ import { AchievementServiceProvider } from '../providers/achievement-service/ach
         ClassesPage,
         AchievementsPage,
         AchievementDetailPage,
-        RankingPage
+        RankingPage,
+        KeeptPage
     ],
     providers: [
         StatusBar,
