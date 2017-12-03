@@ -15,25 +15,26 @@ const ENV = ENVS['dev_env'];
 export class PocketServiceProvider {
 
     private category;
-
-  constructor(
+    public _pockets = [];
+    
+    constructor(
         private http: Http,
         private httpService: HttpServiceProvider
-        ) {
-    console.log('Hello PocketServiceProvider Provider');
-  }
+    ) {
+        console.log('Hello PocketServiceProvider Provider');
+    }
 
     pockets(category) {
         this.category = category;
         let headers: Headers = this.httpService.getHeaders();
         return this.httpService.getApiToken().flatMap(data => {
             headers.append('Authorization', `Bearer ${data}`);
-            
+
             if (this.category)
-                return this.http.get(`${ENV.API_URL}/api/me/pockets?category=${category}`, {"headers": headers})
+                return this.http.get(`${ENV.API_URL}/api/me/pockets?category=${category}`, { "headers": headers })
                     .map(res => res.json());
             else
-                return this.http.get(`${ENV.API_URL}/api/me/pockets`, {"headers": headers})
+                return this.http.get(`${ENV.API_URL}/api/me/pockets`, { "headers": headers })
                     .map(res => res.json());
         });
     }
