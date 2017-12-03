@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { PocketServiceProvider } from '../../providers/pocket-service/pocket-service';
 
 
 /**
@@ -15,10 +16,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
     templateUrl: 'keept.html',
 })
 export class KeeptPage {
+    private principal = 0;
+    private value = 0;
+    private original = 0;
 
-    private value = 1000;
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        private events: Events,
+        private pocketService: PocketServiceProvider
+    ) {
+        for (var i = 0; i < this.pocketService._pockets.length; ++i) {
+            if (this.pocketService._pockets[i].type_id == 0)
+                this.principal += this.pocketService._pockets[i].money;
+        }
+        
+        for (i = 0; i < this.pocketService._pockets.length; ++i) {
+            if (this.pocketService._pockets[i].type_id == 2)
+                this.value += this.pocketService._pockets[i].money;
+        }
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.original = this.value;
+        console.log(this.principal, this.value);
     }
 
     ionViewDidLoad() {
@@ -26,13 +45,33 @@ export class KeeptPage {
     }
 
     add() {
-        this.value += 1000;
+        if (this.principal > 1000) {
+            this.value += 1000;
+            this.principal -= 1000;
+        }
     }
 
     sub() {
         if (this.value > 1000) {
             this.value -= 1000;
+            this.principal += 1000;
         }
+    }
+
+    send() {
+        const money = this.value - this.original;
+        this.pocketService.keept(money).subscribe(
+            response => {
+                console.log(response);
+                this.navCtrl.pop();
+
+                if (response.goals_adquired) {
+                    for (let i = 0; i < response.goals_adquired.length; ++i) {
+                        this.events.publish('user:achievement', response.goals_adquired[i].name);
+                    }
+                }
+            }
+        );
     }
 
 }
