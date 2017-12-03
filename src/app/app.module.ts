@@ -15,6 +15,7 @@ import { AchievementDetailPage } from '../pages/achievement-detail/achievement-d
 import { RankingPage } from '../pages/ranking/ranking';
 import { KeeptPage } from '../pages/keept/keept';
 import { ChatPage } from '../pages/chat/chat';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,7 +35,8 @@ import { PocketServiceProvider } from '../providers/pocket-service/pocket-servic
         AchievementDetailPage,
         RankingPage,
         KeeptPage,
-        ChatPage
+        ChatPage,
+        WelcomePage
     ],
     imports: [
         BrowserModule,
@@ -53,7 +55,8 @@ import { PocketServiceProvider } from '../providers/pocket-service/pocket-servic
         AchievementDetailPage,
         RankingPage,
         KeeptPage,
-        ChatPage
+        ChatPage,
+        WelcomePage
     ],
     providers: [
         StatusBar,

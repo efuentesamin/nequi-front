@@ -55,7 +55,9 @@ export class MyApp {
             this.handleError(error);
         });
         this.events.subscribe('user:achievement', (achievement) => {
-            let alert = this.alertCtrl.create({
+            let modal = this.modalCtrl.create(WelcomePage, {achievement: achievement});
+            modal.present();
+            /* let alert = this.alertCtrl.create({
                 title: 'Logro desbloqueado',
                 message: 'Has desbloqueado el logro "' + achievement.name + '"!',
                 buttons: [
@@ -72,7 +74,7 @@ export class MyApp {
                     }
                 ]
             });
-            alert.present();
+            alert.present(); */
         });
 
         // Ask whether user is logged in
