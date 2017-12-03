@@ -25,7 +25,7 @@ export class MyApp {
     rootPage: any = HomePage;
     public menuItems = [
         { label: 'Inicio', page: HomePage, icon: 'md-home' },
-        { label: 'Logros', page: AchievementsPage, icon: 'md-trophy' },
+        { label: 'Triunfos', page: AchievementsPage, icon: 'md-trophy' },
         { label: 'Roles', page: ClassesPage, icon: 'md-contacts' },
         { label: 'Ranking', page: RankingPage, icon: 'md-people' },
         // { label: 'Salir', page: null, icon: 'md-exit' },
@@ -58,8 +58,8 @@ export class MyApp {
             /* let modal = this.modalCtrl.create(WelcomePage, {achievement: achievement});
             modal.present(); */
             let alert = this.alertCtrl.create({
-                title: 'Logro desbloqueado',
-                message: 'Has desbloqueado el logro "' + achievement.name + '"!',
+                title: 'Triunfo desbloqueado',
+                message: 'Has desbloqueado el triunfo "' + achievement.name + '"!',
                 buttons: [
                     {
                         text: 'Ok',

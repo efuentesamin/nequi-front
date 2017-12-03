@@ -34,7 +34,7 @@
             <img src="/assets/imgs/insignia-explorador.svg" class="insignia">
             <h2>Aventureros</h2>
             <ion-list>
-                <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(2)">
+                <ion-item (click)="chat(item.name, item.profile_pic)" [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(2)">
                     <ion-avatar item-start>
                         <img src="{{item.profile_pic}}">
                     </ion-avatar>
@@ -48,7 +48,7 @@
             <img src="/assets/imgs/insignia-guerrero.svg" class="insignia">
             <h2>Guerreros</h2>
             <ion-list>
-                <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(3)">
+                <ion-item (click)="chat(item.name, item.profile_pic)" [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(3)">
                     <ion-avatar item-start>
                         <img src="{{item.profile_pic}}">
                     </ion-avatar>

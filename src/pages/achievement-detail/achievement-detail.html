@@ -22,7 +22,7 @@
 		<img [class.active]="achievement.adquired_by_me" src="assets/imgs/achievement/{{achievement.image}}.svg" alt="">
 		<p>{{achievement.description}}</p>
 		<p class="adquired_date" *ngIf="achievement.adquired_by_me">Adquirido el {{achievement.adquired_at | date: 'dd/MM/yyyy H:mm'}}.</p>
-		<p class="adquired_date" *ngIf="!achievement.adquired_by_me">Aun no haz completado este logro.</p>
+		<p class="adquired_date" *ngIf="!achievement.adquired_by_me">Aun no haz conseguido este triunfo.</p>
 		<button ion-button navPop>Listo</button>
 	</div>
 </ion-content>

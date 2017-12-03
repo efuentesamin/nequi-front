@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController  } from 'ionic-angular';
 import {AchievementDetailPage} from '../achievement-detail/achievement-detail';
 import {AchievementServiceProvider} from '../../providers/achievement-service/achievement-service';
 
@@ -17,6 +17,7 @@ import {AchievementServiceProvider} from '../../providers/achievement-service/ac
 })
 export class AchievementsPage {
 
+  private loader;
 	private achievements = [];
   private category;
   private categories = ['Todos', 'Guardián', 'Aventurero', 'Guerrero'];
@@ -26,12 +27,18 @@ export class AchievementsPage {
   	public navCtrl: NavController,
    	public navParams: NavParams,
    	public achievementService: AchievementServiceProvider,
-   	public modalCtrl: ModalController
+   	public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController 
   ) {
     this.category = navParams.get('category');
+    this.loader = loadingCtrl.create({
+      content: 'Cargando listado de triunfos...'
+    });
+    this.loader.present();
   	achievementService.achievements(this.category).subscribe(
   		response => {
   			this.achievements = response;
+        this.loader.dismiss();
   		}
   	);
   }
