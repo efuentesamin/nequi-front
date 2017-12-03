@@ -1,6 +1,12 @@
 page-classes {
-    .insignia {
-        width: 200px;
-        height: 200px;
+    .scroll-content{
+        background: color($colors, seawater, base);
+
+        .insignia {
+            width: 200px;
+            height: 200px;
+        }
+
     }
+
 }
