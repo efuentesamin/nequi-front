@@ -15,12 +15,14 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.scroll-content{
-	background: color($colors, midnight, base);
-
-	.item-md{
-		background: none;
-		color: #f0f0f0;
+.menu-inner{
+	.scroll-content{
+		background: color($colors, midnight, base);
+	
+		.item-md{
+			background: none;
+			color: #f0f0f0;
+		}
 	}
 }
 .profile-card {
