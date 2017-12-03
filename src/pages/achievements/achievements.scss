@@ -1,4 +1,18 @@
 page-achievements {
+	.category {
+		img {
+			width: 72px;
+			height: 72px;
+			display: inline;
+			float: left;
+		}
+
+		h1 {
+			height: 72px;
+			display: inline;
+		}
+	}
+
 	.achievement {
 		text-align: center;
 

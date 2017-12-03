@@ -14,6 +14,8 @@ const ENV = ENVS['dev_env'];
 @Injectable()
 export class AchievementServiceProvider {
 
+    private category;
+
   constructor(
         private http: Http,
         private httpService: HttpServiceProvider
@@ -22,11 +24,12 @@ export class AchievementServiceProvider {
   }
 
     achievements(category) {
+        this.category = category;
         let headers: Headers = this.httpService.getHeaders();
         return this.httpService.getApiToken().flatMap(data => {
             headers.append('Authorization', `Bearer ${data}`);
             
-            if (category)
+            if (this.category)
                 return this.http.get(`${ENV.API_URL}/api/goals?category=${category}`, {"headers": headers})
                     .map(res => res.json());
             else

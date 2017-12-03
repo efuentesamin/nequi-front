@@ -18,7 +18,7 @@ import {AchievementServiceProvider} from '../../providers/achievement-service/ac
 export class AchievementsPage {
 
 	private achievements = [];
-  private category = null;
+  private category;
   private categories = ['Todos', 'Guardian', 'Aventurero', 'Guerrero'];
 
   constructor(
@@ -28,6 +28,7 @@ export class AchievementsPage {
    	public modalCtrl: ModalController
   ) {
     this.category = navParams.get('category');
+    this.category = 1;
   	achievementService.achievements(this.category).subscribe(
   		response => {
   			this.achievements = response;
