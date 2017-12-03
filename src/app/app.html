@@ -1,12 +1,16 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menú</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <ion-content>
     <ion-list>
+      <ion-item>
+        <div class="profile-card">
+          <img src="assets/imgs/logo.png" alt="">
+          <h2>EDWIN FUENTES</h2>
+          <p>
+            <span>Tu cuenta</span> <br />
+            3008718408
+          </p>
+        </div>
+      </ion-item>
       <button menuClose ion-item *ngFor="let i of menuItems" (click)="handleMenuItem(i)">
         <ion-icon name="{{i.icon}}"></ion-icon> {{i.label}}
       </button>

@@ -14,3 +14,29 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.profile-card {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 15px 20px;
+	background: black;
+
+	h2 {
+		color: white;
+	}
+
+	p {
+		color: white;
+
+		span {
+			font-size: .75em;
+			color: gray;
+		}
+	}
+
+	img {
+		float: right;
+		height: 48px;
+		width: 48px;
+	}
+}

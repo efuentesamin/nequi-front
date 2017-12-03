@@ -21,13 +21,13 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = KeeptPage;
+    rootPage: any = HomePage;
     public menuItems = [
-        {label: 'Inicio', page: HomePage, icon: 'md-time'},
-        {label: 'Clases', page: ClassesPage, icon: 'md-contacts'},
-        {label: 'Logros', page: AchievementsPage, icon: 'md-star'},
-        {label: 'Ranking', page: RankingPage, icon: 'md-star'},
-        {label: 'Salir', page: null, icon: 'md-exit'},
+        { label: 'Inicio', page: HomePage, icon: 'md-time' },
+        { label: 'Clases', page: ClassesPage, icon: 'md-contacts' },
+        { label: 'Logros', page: AchievementsPage, icon: 'md-star' },
+        { label: 'Ranking', page: RankingPage, icon: 'md-star' },
+        { label: 'Salir', page: null, icon: 'md-exit' },
     ];
 
     constructor(
@@ -37,7 +37,8 @@ export class MyApp {
         private storage: Storage,
         private events: Events,
         private alertController: AlertController,
-        private authService: AuthServiceProvider
+        private authService: AuthServiceProvider,
+        private alertCtrl: AlertController
     ) {
         this.initializeApp();
         this.events.subscribe('user:logged-in', () => {
@@ -50,6 +51,25 @@ export class MyApp {
         });
         this.events.subscribe('http:error', (error) => {
             this.handleError(error);
+        });
+        this.events.subscribe('user:achievement', (name) => {
+            let alert = this.alertCtrl.create({
+                title: 'Logro desbloqueado',
+                message: 'Has desbloqueado el logro "' + name + '"!',
+                buttons: [
+                    {
+                        text: 'Ok',
+                        role: 'cancel'
+                    },
+                    {
+                        text: 'Más',
+                        handler: () => {
+                            this.rootPage = AchievementsPage
+                        }
+                    }
+                ]
+            });
+            alert.present();
         });
 
         // Ask whether user is logged in
@@ -93,14 +113,14 @@ export class MyApp {
             let response;
             try {
                 response = JSON.parse(error._body);
-            } catch(e) {
+            } catch (e) {
             }
 
             if (response) {
                 message = response.message || 'Ocurrió un error!';
             }
         }
-        
+
         switch (error.status) {
             case 401: {
                 //* Unauthorized response. Remove token and send user to login
