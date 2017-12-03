@@ -12,6 +12,7 @@ import { AchievementsPage } from '../pages/achievements/achievements';
 import { AchievementDetailPage } from '../pages/achievement-detail/achievement-detail';
 import { RankingPage } from '../pages/ranking/ranking';
 import { KeeptPage } from '../pages/keept/keept';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 

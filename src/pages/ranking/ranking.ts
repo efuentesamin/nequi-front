@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { ChatPage } from '../chat/chat';
 
 /**
  * Generated class for the RankingPage page.
@@ -10,16 +11,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-ranking',
-  templateUrl: 'ranking.html',
+    selector: 'page-ranking',
+    templateUrl: 'ranking.html',
 })
 export class RankingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public modalCtrl: ModalController
+    ) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RankingPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad RankingPage');
+    }
 
+    chat(name, avatar) {
+        let modal = this.modalCtrl.create(ChatPage, {name: name, avatar: avatar});
+        modal.present();
+    }
 }
