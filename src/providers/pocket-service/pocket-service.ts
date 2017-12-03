@@ -39,4 +39,17 @@ export class PocketServiceProvider {
         });
     }
 
+    keept(money) {
+        let headers: Headers = this.httpService.getHeaders();
+        return this.httpService.getApiToken().flatMap(data => {
+            headers.append('Authorization', `Bearer ${data}`);
+
+            const params = {
+                new_money: money
+            };
+            return this.http.post(`${ENV.API_URL}/api/me/update/pocket2/`, params, { "headers": headers })
+                .map(res => res.json());
+        });
+    }
+
 }

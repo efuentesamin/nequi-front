@@ -51,6 +51,9 @@ export class MyApp {
         this.events.subscribe('http:error', (error) => {
             this.handleError(error);
         });
+        this.events.subscribe('user:achievement', (name) => {
+            console.log(name);
+        });
 
         // Ask whether user is logged in
         this.authService.isLoggedIn(loggedIn => {

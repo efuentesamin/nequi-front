@@ -2,15 +2,19 @@ import { Component } from '@angular/core';
 import { AchievementsPage } from '../../pages/achievements/achievements';
 import { NavController } from 'ionic-angular';
 import { PocketServiceProvider } from '../../providers/pocket-service/pocket-service';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
 
     constructor(public navCtrl: NavController, public pocketService: PocketServiceProvider) {
+    }
+
+    ngOnInit() {
         this.pocketService.pockets(null).subscribe(
             response => {
                 console.log(response);

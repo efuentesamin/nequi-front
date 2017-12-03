@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { PocketServiceProvider } from '../../providers/pocket-service/pocket-service';
 
 
@@ -18,10 +18,12 @@ import { PocketServiceProvider } from '../../providers/pocket-service/pocket-ser
 export class KeeptPage {
     private principal = 0;
     private value = 0;
+    private original = 0;
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
+        private events: Events,
         private pocketService: PocketServiceProvider
     ) {
         for (var i = 0; i < this.pocketService._pockets.length; ++i) {
@@ -33,6 +35,8 @@ export class KeeptPage {
             if (this.pocketService._pockets[i].type_id == 2)
                 this.value += this.pocketService._pockets[i].money;
         }
+
+        this.original = this.value;
     }
 
     ionViewDidLoad() {
@@ -51,6 +55,22 @@ export class KeeptPage {
             this.value -= 1000;
             this.principal += 1000;
         }
+    }
+
+    send() {
+        const money = this.value - this.original;
+        this.pocketService.keept(money).subscribe(
+            response => {
+                console.log(response);
+                this.navCtrl.pop();
+                
+                if (response.goals_adquired) {
+                    for (let i = 0; i < response.goals_adquired.length; ++i) {
+                        this.events.publish('user:achievement', response.goals_adquired[i].name);
+                    }
+                }
+            }
+        );
     }
 
 }
