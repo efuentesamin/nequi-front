@@ -21,7 +21,6 @@ export class RankingPage {
   	{id: 50002, profile_pic: 'assets/imgs/person2.jpeg', name: 'Juan Velasquez', points: [{category_id: 1, exp: 70}, {category_id: 2, exp: 80}, {category_id: 3, exp: 30}]},
   	{id: 50003, profile_pic: 'assets/imgs/person3.jpeg', name: 'Claudia Jimenez', points: [{category_id: 1, exp: 55}, {category_id: 2, exp: 20}, {category_id: 3, exp: 20}]},
   	{id: 50004, profile_pic: 'assets/imgs/person4.jpeg', name: 'Angie Fuentes', points: [{category_id: 1, exp: 120}, {category_id: 2, exp: 55}, {category_id: 3, exp: 100}]},
-  	{id: 50005, profile_pic: 'assets/imgs/person5.jpeg', name: 'Andrés Hernandez', points: [{category_id: 1, exp: 150}, {category_id: 2, exp: 85}, {category_id: 3, exp: 80}]}
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider) {

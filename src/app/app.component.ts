@@ -24,10 +24,10 @@ export class MyApp {
     rootPage: any = HomePage;
     public menuItems = [
         { label: 'Inicio', page: HomePage, icon: 'md-home' },
-        { label: 'Clases', page: ClassesPage, icon: 'md-contacts' },
         { label: 'Logros', page: AchievementsPage, icon: 'md-trophy' },
+        { label: 'Roles', page: ClassesPage, icon: 'md-contacts' },
         { label: 'Ranking', page: RankingPage, icon: 'md-people' },
-        { label: 'Salir', page: null, icon: 'md-exit' },
+        // { label: 'Salir', page: null, icon: 'md-exit' },
     ];
 
     constructor(
