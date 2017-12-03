@@ -7,4 +7,27 @@ page-ranking {
         width: 100px;
         height: 100px;
     }
+
+    .item.me {
+
+        &.item-md{
+            background: color($colors, okidoki, base);
+        }
+
+        img{
+            border: 2px solid #fff;
+        }
+
+        .item-inner{
+            border: none;  
+        } 
+
+    	h2 {
+            font-weight: bold;
+        }
+        
+        h2, h3{
+            color: #fff;
+        }
+    }
 }

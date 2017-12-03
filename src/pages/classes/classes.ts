@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild  } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { AchievementsPage } from '../achievements/achievements';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 
 /**
@@ -17,12 +18,26 @@ import { AchievementsPage } from '../achievements/achievements';
     templateUrl: 'classes.html',
 })
 export class ClassesPage {
+  @ViewChild(Slides) slides: Slides;
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public modalCtrl: ModalController
+        public modalCtrl: ModalController,
+        public authService: AuthServiceProvider
     ) {
+    }
+
+    ionViewDidEnter() {
+
+        if (this.authService.personalInfo.main_role.indexOf('Guardián')) {
+            this.slides.slideTo(-1);
+        } else if (this.authService.personalInfo.main_role.indexOf('Aventurero')) {
+            this.slides.slideTo(0);
+        } else if (this.authService.personalInfo.main_role.indexOf('Guerrero')) {
+            this.slides.slideTo(1);
+        }
+
     }
 
     ionViewDidLoad() {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the RankingPage page.
@@ -19,16 +20,62 @@ export class RankingPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public modalCtrl: ModalController
+        public modalCtrl: ModalController,
+        private authService: AuthServiceProvider
     ) {
+        this.list.push(this.authService.personalInfo);
     }
+
+    private list = [
+        { id: 50001, profile_pic: 'assets/imgs/person1.jpeg', name: 'Pedro Perez', points: [{ category_id: 1, exp: 50 }, { category_id: 2, exp: 70 }, { category_id: 3, exp: 65 }] },
+        { id: 50002, profile_pic: 'assets/imgs/person2.jpeg', name: 'Juan Velasquez', points: [{ category_id: 1, exp: 70 }, { category_id: 2, exp: 80 }, { category_id: 3, exp: 30 }] },
+        { id: 50003, profile_pic: 'assets/imgs/person3.jpeg', name: 'Claudia Jimenez', points: [{ category_id: 1, exp: 55 }, { category_id: 2, exp: 20 }, { category_id: 3, exp: 20 }] },
+        { id: 50004, profile_pic: 'assets/imgs/person4.jpeg', name: 'Angie Fuentes', points: [{ category_id: 1, exp: 120 }, { category_id: 2, exp: 55 }, { category_id: 3, exp: 100 }] },
+    ];
+
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad RankingPage');
     }
 
     chat(name, avatar) {
-        let modal = this.modalCtrl.create(ChatPage, {name: name, avatar: avatar});
+        let modal = this.modalCtrl.create(ChatPage, { name: name, avatar: avatar });
         modal.present();
     }
+
+    pointsBy(category, points) {
+        var exp = 0;
+
+        for (var i = 0; i < points.length; ++i) {
+            if (points[i].category_id == category)
+                exp = points[i].exp;
+        }
+
+        return exp;
+    }
+
+    listBy(category) {
+
+        function compare(a, b) {
+            var expA = 0;
+            var expB = 0;
+
+            for (var i = 0; i < a.points.length; ++i) {
+                if (a.points[i].category_id == category)
+                    expA = a.points[i].exp;
+            }
+
+            for (i = 0; i < b.points.length; ++i) {
+                if (b.points[i].category_id == category)
+                    expB = b.points[i].exp;
+            }
+
+            return expB - expA;
+        }
+
+        this.list.sort(compare);
+
+        return this.list;
+    }
+
 }

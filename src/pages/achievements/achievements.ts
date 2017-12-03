@@ -19,7 +19,7 @@ export class AchievementsPage {
 
 	private achievements = [];
   private category;
-  private categories = ['Todos', 'Guardian', 'Aventurero', 'Guerrero'];
+  private categories = ['Todos', 'Guardián', 'Aventurero', 'Guerrero'];
   private category_imgs = ['default', 'insignia-guardian', 'insignia-explorador', 'insignia-guerrero'];
 
   constructor(
