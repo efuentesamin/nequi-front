@@ -107,6 +107,10 @@ export class MyApp {
         }
     }
 
+    showCategories() {
+        this.nav.setRoot(ClassesPage);
+    }
+
     handleError(error) {
         console.log(error);
         // Default error message on http error

@@ -9,7 +9,7 @@
             <span>Tu cuenta</span> <br />
             {{authService.personalInfo.phone_number}}
           </p>
-          <p>
+          <p menuClose (click)="showCategories()">
             <span>Especialización</span> <br />
             {{authService.personalInfo.main_role}}
           </p>
