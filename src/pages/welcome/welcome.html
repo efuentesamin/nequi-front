@@ -5,14 +5,23 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>welcome</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title>welcome</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
+    <div *ngIf="achievement.category === 1">
+        <h1>Felicidades</h1>
+        <img src="/assets/imgs/insignia-guardian.svg" class="insignia">
+        <p>Haz obtenido la insignia <b>Guardián</b>.</p>
+        <p>Un Guardián protege sus ahorros, tu meta como guardián es adquirir la cultura de ahorro <b>Nequi</b>.</p>
+    </div>
+    <div>
+        <p>Adquiriste esta insignia por haber desbloqueado el logro:</p>
+        <h2>{{ achievement.name }}</h2>
+        <img src="/assets/imgs/{{ achievement.image }}.svg" class="achievement">
+        <button ion-button (click)="more()" color="midnight">Ver más</button>
+    </div>
 </ion-content>

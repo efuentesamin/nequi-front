@@ -1,42 +1,43 @@
-F<ion-content padding>
-  <div id="top-content">
-      <button ion-button menuToggle clear>
+F
+<ion-content padding>
+    <div id="top-content">
+        <button ion-button menuToggle clear>
           <ion-icon name="menu"></ion-icon>
       </button>
-      <img id="cards" src="assets/imgs/isologo.svg">
-      <div id="block-info">
-        <span class="title">Disponible</span>
-        <span class="amount">{{getDisponible() | currency:'$':true:'1.0':locale:'es'}}</span>
-        <span class="title">{{getNormalPockets()}} Bolsillo(s)</span>
-        <span class="title">Total</span>
-        <span class="amount-total">{{getTotal() | currency:'$':true:'1.0':locale:'es'}}</span>
-      </div>
-  </div>
-  <div id="mainmenu">
-    <ion-item>
-      <img src="assets/imgs/goals.svg" alt="Metas" class="item-menu goals"><br/>
-      <span class="text">Metas</span>
-    </ion-item>
-    <ion-item (click)="handleMenuItem('keept')">
-      <img src="assets/imgs/keep.svg" alt="Guardadito" class="item-menu keep"><br/>
-      <span class="text">Guardadito</span>
-    </ion-item>
-    <ion-item>
-      <img src="assets/imgs/pokets.svg" alt="Bolsillos" class="item-menu pokets"><br/>
-      <span class="text">Bolsillos</span>
-    </ion-item>
-    <ion-item (click)="handleMenuItem('achievements')">
-      <img src="assets/imgs/achievements.svg" alt="Logros" class="item-menu achievements"><br/>
-      <span class="text">Logros</span>
-    </ion-item>
-  </div>
-  
-  <ion-fab bottom left>
-    <button ion-fab color="bilbao">+</button>
-  </ion-fab>
+        <img id="cards" src="assets/imgs/isologo.svg">
+        <div id="block-info">
+            <span class="title">Disponible</span>
+            <span class="amount">{{getDisponible() | currency:'$':true:'1.0':locale:'es'}}</span>
+            <span class="title">{{getNormalPockets()}} Bolsillo(s)</span>
+            <span class="title">Total</span>
+            <span class="amount-total">{{getTotal() | currency:'$':true:'1.0':locale:'es'}}</span>
+        </div>
+    </div>
+    <div id="mainmenu">
+        <ion-item>
+            <img src="assets/imgs/goals.svg" alt="Metas" class="item-menu goals"><br/>
+            <span class="text">Metas</span>
+        </ion-item>
+        <ion-item (click)="handleMenuItem('keept')">
+            <img src="assets/imgs/keep.svg" alt="Guardadito" class="item-menu keep"><br/>
+            <span class="text">Guardadito</span>
+        </ion-item>
+        <ion-item>
+            <img src="assets/imgs/pokets.svg" alt="Bolsillos" class="item-menu pokets"><br/>
+            <span class="text">Bolsillos</span>
+        </ion-item>
+        <ion-item (click)="handleMenuItem('achievements')">
+            <img src="assets/imgs/achievements.svg" alt="Logros" class="item-menu achievements"><br/>
+            <span class="text">Logros</span>
+        </ion-item>
+    </div>
 
-  <ion-fab bottom right>
-    <button ion-fab color="guava">$</button>
-  </ion-fab>
-  
+    <ion-fab bottom left>
+        <button ion-fab color="bilbao">+</button>
+    </ion-fab>
+
+    <ion-fab bottom right>
+        <button ion-fab color="guava">$</button>
+    </ion-fab>
+
 </ion-content>

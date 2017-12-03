@@ -14,6 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
     templateUrl: 'welcome.html',
 })
 export class WelcomePage {
+    private achievement = {
+        category: 1,
+        name: 'Algo',
+        image: 'algo'
+    };
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
