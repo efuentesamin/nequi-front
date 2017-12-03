@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AchievementsPage } from '../../pages/achievements/achievements';
 import { NavController } from 'ionic-angular';
 import {PocketServiceProvider} from '../../providers/pocket-service/pocket-service';
+import { KeeptPage } from '../../pages/keept/keept';
+
 
 @Component({
   selector: 'page-home',
@@ -22,6 +24,9 @@ export class HomePage {
 
   handleMenuItem(pagename) {
   	switch (pagename) {
+  		case "keept":
+  			this.navCtrl.setRoot(KeeptPage);
+  			break;
   		case "achievements":
   			this.navCtrl.setRoot(AchievementsPage);
   			break;
