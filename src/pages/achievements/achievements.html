@@ -6,15 +6,24 @@
 -->
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button *ngIf="category == null" ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Mis Logros</ion-title>
+    <ion-buttons *ngIf="category != null" end>
+	    <button ion-button navPop>
+	      <ion-icon name="close"></ion-icon>
+	    </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+	<div *ngIf="category == null" class="category">
+		<img src="assets/imgs/{{category_imgs[0]}}.svg" alt="">
+		<h1>{{categories[0]}}</h1>
+	</div>
 	<div *ngIf="category != null" class="category">
 		<img src="assets/imgs/{{category_imgs[category]}}.svg" alt="">
 		<h1>{{categories[category]}}</h1>
