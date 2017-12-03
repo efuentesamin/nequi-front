@@ -18,7 +18,7 @@
     <ion-slides pager>
         <ion-slide>
             <img src="assets/imgs/insignia-guardian.svg" class="insignia">
-            <h2>Guardián</h2>
+            <h2>Guardianes</h2>
             <ion-list rounded>
                 <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(1)">
                     <ion-avatar item-start>
@@ -32,7 +32,7 @@
 
         <ion-slide>
             <img src="/assets/imgs/insignia-explorador.svg" class="insignia">
-            <h2>Aventurero</h2>
+            <h2>Aventureros</h2>
             <ion-list>
                 <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(2)">
                     <ion-avatar item-start>
@@ -46,7 +46,7 @@
 
         <ion-slide>
             <img src="/assets/imgs/insignia-guerrero.svg" class="insignia">
-            <h2>Guerrero</h2>
+            <h2>Guerreros</h2>
             <ion-list>
                 <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(3)">
                     <ion-avatar item-start>
