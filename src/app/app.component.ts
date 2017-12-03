@@ -21,7 +21,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = KeeptPage;
+    rootPage: any = HomePage;
     public menuItems = [
         {label: 'Inicio', page: HomePage, icon: 'md-time'},
         {label: 'Clases', page: ClassesPage, icon: 'md-contacts'},
