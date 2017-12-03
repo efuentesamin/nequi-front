@@ -20,40 +20,12 @@
             <img src="assets/imgs/insignia-guardian.svg" class="insignia">
             <h2>Guardián</h2>
             <ion-list rounded>
-                <ion-item>
+                <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(1)">
                     <ion-avatar item-start>
-                        <img src="assets/imgs/person1.jpeg">
+                        <img src="{{item.profile_pic}}">
                     </ion-avatar>
-                    <h2>Pedro Perez</h2>
-                    <h3>Experiencia: 234</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person2.jpeg">
-                    </ion-avatar>
-                    <h2>Juan Velasquez</h2>
-                    <h3>Experiencia: 232</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person3.jpeg">
-                    </ion-avatar>
-                    <h2>Claudia Jimenez</h2>
-                    <h3>Experiencia: 198</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person4.jpeg">
-                    </ion-avatar>
-                    <h2>Angie Fuentes</h2>
-                    <h3>Experiencia: 192</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person5.jpeg">
-                    </ion-avatar>
-                    <h2>Andrés Hernandez</h2>
-                    <h3>Experiencia: 178</h3>
+                    <h2>{{item.name}}</h2>
+                    <h3>Experiencia: {{pointsBy(1, item.points)}}</h3>
                 </ion-item>
             </ion-list>
         </ion-slide>
@@ -62,40 +34,12 @@
             <img src="/assets/imgs/insignia-explorador.svg" class="insignia">
             <h2>Aventurero</h2>
             <ion-list>
-                <ion-item>
+                <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(2)">
                     <ion-avatar item-start>
-                        <img src="assets/imgs/person4.jpeg">
+                        <img src="{{item.profile_pic}}">
                     </ion-avatar>
-                    <h2>Angie Fuentes</h2>
-                    <h3>Experiencia: 234</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person1.jpeg">
-                    </ion-avatar>
-                    <h2>Pedro Perez</h2>
-                    <h3>Experiencia: 232</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person2.jpeg">
-                    </ion-avatar>
-                    <h2>Juan Velasquez</h2>
-                    <h3>Experiencia: 198</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person3.jpeg">
-                    </ion-avatar>
-                    <h2>Claudia Jimenez</h2>
-                    <h3>Experiencia: 192</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person5.jpeg">
-                    </ion-avatar>
-                    <h2>Andrés Hernandez</h2>
-                    <h3>Experiencia: 178</h3>
+                    <h2>{{item.name}}</h2>
+                    <h3>Experiencia: {{pointsBy(2, item.points)}}</h3>
                 </ion-item>
             </ion-list>
         </ion-slide>
@@ -104,40 +48,12 @@
             <img src="/assets/imgs/insignia-guerrero.svg" class="insignia">
             <h2>Guerrero</h2>
             <ion-list>
-                <ion-item>
+                <ion-item [class.me]="item.id == authService.personalInfo.id" *ngFor="let item of listBy(3)">
                     <ion-avatar item-start>
-                        <img src="assets/imgs/person2.jpeg">
+                        <img src="{{item.profile_pic}}">
                     </ion-avatar>
-                    <h2>Juan Velasquez</h2>
-                    <h3>Experiencia: 234</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person1.jpeg">
-                    </ion-avatar>
-                    <h2>Pedro Perez</h2>
-                    <h3>Experiencia: 232</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person5.jpeg">
-                    </ion-avatar>
-                    <h2>Andrés Hernandez</h2>
-                    <h3>Experiencia: 198</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person3.jpeg">
-                    </ion-avatar>
-                    <h2>Claudia Jimenez</h2>
-                    <h3>Experiencia: 192</h3>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar item-start>
-                        <img src="assets/imgs/person4.jpeg">
-                    </ion-avatar>
-                    <h2>Angie Fuentes</h2>
-                    <h3>Experiencia: 178</h3>
+                    <h2>{{item.name}}</h2>
+                    <h3>Experiencia: {{pointsBy(3, item.points)}}</h3>
                 </ion-item>
             </ion-list>
         </ion-slide>

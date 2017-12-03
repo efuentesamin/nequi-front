@@ -3,11 +3,15 @@
     <ion-list>
       <ion-item>
         <div class="profile-card">
-          <img src="assets/imgs/logo.png" alt="">
-          <h2>EDWIN FUENTES</h2>
+          <img src="{{authService.personalInfo.profile_pic}}" alt="">
+          <h2>{{authService.personalInfo.name}}</h2>
           <p>
             <span>Tu cuenta</span> <br />
-            3008718408
+            {{authService.personalInfo.phone_number}}
+          </p>
+          <p>
+            <span>Especialización</span> <br />
+            {{authService.personalInfo.main_role}}
           </p>
         </div>
       </ion-item>
