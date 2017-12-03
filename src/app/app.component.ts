@@ -78,6 +78,8 @@ export class MyApp {
         this.authService.isLoggedIn(loggedIn => {
             if (!loggedIn) {
                 this.rootPage = LoginPage;
+            } else {
+                this.authService.me();
             }
         });
     }

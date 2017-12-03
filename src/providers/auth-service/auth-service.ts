@@ -59,20 +59,11 @@ export class AuthServiceProvider {
         this.httpService.getApiToken().flatMap(data => {
             headers.append('Authorization', `Bearer ${data}`);
             
-            return this.http.get(`${ENV.API_URL}/api/v1/me`, {"headers": headers})
+            return this.http.get(`${ENV.API_URL}/api/me`, {"headers": headers})
                 .map(res => res.json());
         }).subscribe(
             response => {
-                if (response.birthday) {
-                    response.birthday = new Date(response.birthday);
-                }
-                this.personalInfo.name = response.name;
-                this.personalInfo.firstName = response.first_name;
-                this.personalInfo.lastName = response.last_name;
-                this.personalInfo.birthday = response.birthday;
-                this.personalInfo.email = response.email;
-                this.personalInfo.profilePicture = response.picture_url;
-                this.personalInfo.city = response.location;
+                this.personalInfo = response;
             },
             error => this.events.publish('http:error', error),
             () => {},
