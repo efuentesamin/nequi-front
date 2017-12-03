@@ -15,7 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AchievementDetailPage {
 
+	private achievement = null;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	this.achievement = navParams.get('achievement');
   }
 
   ionViewDidLoad() {

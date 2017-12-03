@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import {AchievementDetailPage} from '../achievement-detail/achievement-detail';
+import {AchievementServiceProvider} from '../../providers/achievement-service/achievement-service';
 
 /**
  * Generated class for the AchievementsPage page.
@@ -15,11 +17,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AchievementsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	private achievements = [];
+	private myAchievements = [];
+
+  constructor(
+  	public navCtrl: NavController,
+   	public navParams: NavParams,
+   	public achievementService: AchievementServiceProvider,
+   	public modalCtrl: ModalController
+  ) {
+  	achievementService.achievements().subscribe(
+		response => {
+			this.achievements = response;
+		}
+	);
+  	achievementService.myAchievements().subscribe(
+		response => {
+			this.myAchievements = response;
+		}
+	);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AchievementsPage');
+  }
+
+  viewDetails(achievement) {
+  	let achievementModal = this.modalCtrl.create(AchievementDetailPage, {achievement: achievement});
+  	achievementModal.present();
   }
 
 }

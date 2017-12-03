@@ -5,14 +5,23 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>achievements</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mis Logros</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+	<ion-grid>
+		<ion-row>
+			<ion-col *ngFor="let a of achievements" col-4>
+				<div (click)="viewDetails(a)" class="achievement" [class.active]="a.adquired_by_me">
+					<img src="assets/imgs/{{a.image}}.svg" alt="">
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>

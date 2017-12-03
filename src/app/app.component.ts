@@ -22,7 +22,8 @@ export class MyApp {
     rootPage: any = ClassesPage;
     public menuItems = [
         {label: 'Inicio', page: HomePage, icon: 'md-time'},
-        {label: 'Lista', page: LoginPage, icon: 'md-list'},
+        // {label: 'Lista', page: LoginPage, icon: 'md-list'},
+        {label: 'Logros', page: AchievementsPage, icon: 'md-star'},
         {label: 'Salir', page: null, icon: 'md-exit'},
     ];
 
