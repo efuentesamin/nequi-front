@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AchievementsPage } from '../../pages/achievements/achievements';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, LoadingController } from 'ionic-angular';
 import { PocketServiceProvider } from '../../providers/pocket-service/pocket-service';
 import { KeeptPage } from '../../pages/keept/keept';
 
@@ -13,14 +13,23 @@ import { KeeptPage } from '../../pages/keept/keept';
 export class HomePage {
 
 
-    constructor(public navCtrl: NavController, public pocketService: PocketServiceProvider, public modalCtrl: ModalController) {
+    constructor(
+        public navCtrl: NavController,
+        public pocketService: PocketServiceProvider,
+        public modalCtrl: ModalController,
+        public loadingCtrl: LoadingController
+    ) {
     }
 
     ionViewDidEnter() {
+        this.loader = this.loadingCtrl.create({
+            content: 'Cargando perfil..'
+        });
+        this.loader.present();
         this.pocketService.pockets(null).subscribe(
             response => {
-                console.log(response);
                 this.pocketService._pockets = response;
+                this.loader.dismiss();
             }
         );
     }
